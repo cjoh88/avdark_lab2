@@ -41,7 +41,7 @@ decrease(int thread, int iterations, volatile int *data)
            do {
              old = *data;
              new = old - 1;
-           } while(asm_atomic_cmpxchg_int32((int32_t*)data, old, new) != old);
+           } while(asm_cmpxchg_int32((int32_t*)data, old, new) != old);
          }
 }
 
