@@ -68,12 +68,12 @@ lh_acquire(int ** volatile l, int ** volatile i, volatile int ** volatile p)
         /* BONUS TASK: Implement the acquire part of the CLH locking
          * algorithm as described in the lecture notes. */
          **i = 1; // Initialize our cell to busy
-         printf("P: %p\tl: %p\n", *p, *l);
-         printf("p: %p\tl: %p\n", *p, *l);
+         //printf("P: %p\tl: %p\n", *p, *l);
+         //printf("p: %p\tl: %p\n", *p, *l);
          //asm_atomic_xchg_voidp((void**)&(*p), (void*)&(**l));
          //*l = asm_atomic_xchg_voidp((void**)p, (void*)*l);
          *p = asm_atomic_xchg_voidp((void**)l, (void*)*p);
-         printf("p: %p\tl: %p\n------------------------------------\n", *p, *l);
+         //printf("p: %p\tl: %p\n------------------------------------\n", *p, *l);
          while(**p != 0){}
 }
 
